@@ -17,8 +17,9 @@
 * localhost/3000/fibrose?id=<num_id>
 * localhost/3000/hepatitis/type?id=<num_id>
 
+===============
+
 ## Requests
-=============
 
 ### All requests take id as param
 
@@ -42,6 +43,6 @@
 
 ## Example
 
-``` localhost:3000/patient/fibrosis?id=19
+``` localhost:3000/patient/fibrosis?id=19 ``` 
 
 
