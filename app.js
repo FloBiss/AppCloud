@@ -26,7 +26,7 @@ app.listen(3000, () => {
 	});
 });
 
-app.get("/hepatitis/exams", async(request, response) =>{
+app.get("/patient/hepatitisexams", async(request, response) =>{
 	try{
 		var id = (request.query.id=== undefined ? "" : parseInt(request.query.id));
 		indis.find({"m_id": id, "tbil":0}).toArray((error,result) => {
@@ -47,7 +47,7 @@ app.get("/hepatitis/exams", async(request, response) =>{
 	}
 });
 
-app.get("/hepatitis/type", async(request,response) =>{
+app.get("/patient/hepatitistype", async(request,response) =>{
 	try{
 		var id = (request.query.id=== undefined ? "" : parseInt(request.query.id));
 		
@@ -68,7 +68,7 @@ app.get("/hepatitis/type", async(request,response) =>{
 	}
 });
 
-app.get("/fibrose", async(request,response) =>{
+app.get("/patient/fibros", async(request,response) =>{
 	try{
 		var id = (request.query.id=== undefined ? "" : parseInt(request.query.id));
 		
@@ -76,8 +76,9 @@ app.get("/fibrose", async(request,response) =>{
 		if(error) {
 			return response.status(500).send(error);
 		}
-		
-		response.send(result);
+		var table = result
+		var fib_type = table[0].fibros
+		response.send("You have fibrosis type "+fib_type);
 	});
 	}
 	catch(e){
@@ -86,3 +87,51 @@ app.get("/fibrose", async(request,response) =>{
 	}
 });
 
+app.get("/doctor/patientsbios", async(request,response) =>{
+	try{		
+		var id = (request.query.id=== undefined ? "" : parseInt(request.query.id));
+		bios.find({"m_id" : id}).toArray((error,result) => {
+		if(error) {
+			return response.status(500).send(error);
+		}
+		response.send(result)
+		});
+	}
+	catch(e){
+		console.error(e);
+		process.exit(1);
+	}
+});
+
+app.get("/doctor/patientsdispat", async(request,response) =>{
+	try{		
+		var id = (request.query.id=== undefined ? "" : parseInt(request.query.id));
+		dispat.find({"m_id" : id}).toArray((error,result) => {
+		if(error) {
+			return response.status(500).send(error);
+		}
+		response.send(result)
+		});
+	}
+	catch(e){
+		console.error(e);
+		process.exit(1);
+	}
+});
+
+app.get("/doctor/patientsindis", async(request,response) =>{
+	try{		
+		var id = (request.query.id=== undefined ? "" : parseInt(request.query.id));
+		indis.find({"m_id" : id}).toArray((error,result) => {
+		if(error) {
+			return response.status(500).send(error);
+		}
+		response.send(result)
+		});
+	}
+	catch(e){
+		console.error(e);
+		process.exit(1);
+	}
+});
+		
