@@ -2,4 +2,4 @@
 
 ## Initialize the project
 
-``` npm init ````
+``` npm init ```
