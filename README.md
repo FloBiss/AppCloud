@@ -12,18 +12,19 @@
 ## Run the Api
 ``` node app.js ```
 
+## Essai en local
 ### Go to 
-* localhost/3000/hepatitis/exams?id=<num_id>
-* localhost/3000/fibrose?id=<num_id>
-* localhost/3000/hepatitis/type?id=<num_id>
+* localhost:3000/hepatitis/exams?id=<num_id>
+* localhost:3000/fibrose?id=<num_id>
+* localhost:3000/hepatitis/type?id=<num_id>
 
 
 
-## Requests
+### Requests
 
-### All requests take id as param
+#### All requests take id as param
 
-### Patient side
+#### Patient side
 
 
 * "/patient/hepatitisexams" : sends "True" or "False" if the patient has hepatitis
@@ -33,7 +34,7 @@
 * "/patient/fibrosis" : sends message with the type of fibrosis the user has according to his exams
 
 
-### Doctor side
+#### Doctor side
 
 * "/doctor/patientsbios" : sends patients Bios in json format
 
@@ -41,8 +42,11 @@
 
 * "/doctor/patientsindis" : sends patients Indis in json format
 
-## Example
+## Pour le site
+ 
+* Laisser tourner le script (``` node app.js ```)
+* Télécharger et allumer wampserver : Le logo doit être vert, si ce n'est pas le cas ouvrez IIS et arrêter votre serveur.
+* Ouvrir localhost à partir de wamp afin d'exécuter le site
 
-``` localhost:3000/patient/fibrosis?id=19 ``` 
 
 
